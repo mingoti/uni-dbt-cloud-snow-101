@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: a close of a Postgres application database
+    database: raw
+    schema: jaffle_shop
+    tables:
+      - name: customers
+        description: the raw customers data
+        columns:
+          - name: id
+            description: the primary key for the raw customer table
+            tests:
+              - not_null
+              - unique
+
+      - name: orders
+        description: the raw orders table
+        columns:
+          - name: id
+            description: the primary key for the raw orders table
+            tests:
+              - not_null
+              - unique
+
+        loaded_at_field: _etl_loaded_at
+        freshness: null
