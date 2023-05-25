@@ -5,3 +5,7 @@ select
     status
 
 from {{ source('jaffle_shop', 'orders') }}
+
+{#
+{{ limit_dataset ('order_date',1000)}}
+#}
